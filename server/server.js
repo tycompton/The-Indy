@@ -268,6 +268,8 @@ app.post('/api/users/uploadimage', auth, admin, formidable(),(req,res)=>{
   })
 })
 
+
+
 app.get('/api/users/removeimage', auth, admin, (req, res) => {
   let image_id = req.query.public_id;
 
@@ -277,7 +279,7 @@ app.get('/api/users/removeimage', auth, admin, (req, res) => {
   });
 });
 
-app.post("/api/users/addToCart", auth, (req, res) => {
+app.post('/api/users/addToCart', auth, (req, res) => {
   User.findOne({ _id: req.user._id }, (err, doc) => {
     let duplicate = false;
 
@@ -297,7 +299,6 @@ app.post("/api/users/addToCart", auth, (req, res) => {
           res.status(200).json(doc.cart);
         }
       )
-
     } else {
       User.findOneAndUpdate(
         { _id: req.user._id },
@@ -436,27 +437,28 @@ app.post("/api/users/update_profile", auth, (req, res) => {
 //             SITE
 // ==============================
 
-// app.get("/api/site/site_data", (req, res) => {
-//   Site.find({}, (err, site) => {
-//     if (err) return res.status(400).send(err);
-//     res.status(200).send(site[0].siteInfo);
-//   });
-// });
+app.get("/api/site/site_data", (req, res) => {
+  Site.find({}, (err, site) => {
+    if(err) return res.status(400).send(err);
+    res.status(200).send(site[0].siteInfo);
+  });
+});
 
-// app.post("/api/site/site_data", auth, admin, (req, res) => {
-//   Site.findOneAndUpdate(
-//     { name: 'Site'},
-//     { "$set": { siteInfo: req.body }}, 
-//     { new: true },
-//     (err,doc)=>{
-//       if(err) return res.json({success:false,err});
-//       return res.status(200).send({
-//         success: true,
-//         siteInfo: doc.siteInfo
-//       })
-//     }
-//   )
-// })
+app.post("/api/site/site_data", auth, admin, (req, res) => {
+  Site.findOneAndUpdate(
+    { name: "Site" },
+    { $set: { siteInfo: req.body } },
+    { new: true },
+    (err, doc) => {
+      if(err) return res.json({ success: false, err });
+      return res.status(200).send({
+        success: true,
+        siteInfo: doc.siteInfo,
+      });
+    }
+  );
+});
+
 
 
 const port = process.env.PORT || 3002;

@@ -15,4 +15,4 @@ const siteSchema = mongoose.Schema({
 
 const Site = mongoose.model('Site',siteSchema);
 
-module.exports = { Site }
+module.exports = { Site } 
