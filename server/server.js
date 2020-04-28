@@ -346,7 +346,7 @@ app.get("/api/users/removeFromCart", auth, (req, res) => {
 });
 
 
-app.post("/api/users/successBuy", auth, (req, res) => {
+app.post('/api/users/success_buy', auth, (req, res) => {
   let history = [];
   let transactionData = {};
 
@@ -386,7 +386,7 @@ app.post("/api/users/successBuy", auth, (req, res) => {
         if (err) return res.json({ success: false, err });
         let products = [];
         doc.product.forEach((item) => {
-          product.push({ id: item.id, quantity: item.quantity });
+          products.push({ id: item.id, quantity: item.quantity });
         });
 
         async.eachSeries(

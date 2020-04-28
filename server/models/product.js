@@ -23,7 +23,7 @@ const productSchema = mongoose.Schema({
     ref: 'Brand',
     required: true
   },
-  shipping:{
+  delivery:{
     required: false,
     type: Boolean
   },
