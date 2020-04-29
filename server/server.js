@@ -36,13 +36,19 @@ const { Site } = require('./models/site');
 const { auth } = require('./middleware/auth');
 const { admin } = require('./middleware/admin');
 
-// Allow cross-domain access
-// app.all('/', function(req, res, next) {
-//   res.header("Access-Control-Allow-Origin", "*");
-//   res.header("Access-Control-Allow-Headers", "X-Requested-With");
 
-//   next();
-// });
+// Email config
+
+// var mail = {
+//   from: "crashbangcompton@hotmail.com",
+//   to: "tyrone.compton@gmail.com",
+//   subject: "Send test email",
+//   text: "Testing The Indy mailing system",
+//   html: "<b>This actually works!</b>"
+// }
+
+
+
 
 //===============================
 //             PRODUCTS
