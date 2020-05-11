@@ -1,4 +1,5 @@
 const nodemailer = require('nodemailer');
+const { welcome } = require("./welcome_template");
 require('dotenv').config();
 
 const getEmailData = (to, name, token, template) => {
@@ -7,14 +8,14 @@ const getEmailData = (to, name, token, template) => {
   switch(template){
     case "welcome":
       data = {
-        from: "TC Test <crashbangcompton@hotmail.com>",
+        from: "<crashbangcompton@hotmail.com>",
         to,
         bcc: "crashbangcompton@hotmail.com",
-        subject: `Welcome to The Indy Online Ordering Service ${name}`,
-        html: "<b>This actually works!</b>"
+        subject: `Welcome to The Indy Online ${name}`,
+        html: welcome()
       }
     break;
-    default:
+    default: 
       data;
   }
 
