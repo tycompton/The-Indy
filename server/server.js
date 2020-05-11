@@ -43,18 +43,6 @@ const { admin } = require('./middleware/admin');
 const { sendEmail } = require('./utils/mail/index');
 
 
-// Email config (now hosted in utils > mail)
-// var mail = {
-//   from: "crashbangcompton@hotmail.com",
-//   to: "tyrone.compton@gmail.com",
-//   subject: "Send test email",
-//   text: "Testing The Indy mailing system",
-//   html: "<b>This actually works!</b>"
-// }
-
-
-
-
 //===============================
 //             PRODUCTS
 // ==============================
@@ -429,6 +417,10 @@ app.post('/api/users/success_buy', auth, (req, res) => {
           },
           (err) => {
             if (err) return res.json({ success: false, err });
+            
+            sendEmail(user.email, user.name, null, "purchase", transactionData)
+
+
             res.status(200).json({
               success: true,
               cart: user.cart,
