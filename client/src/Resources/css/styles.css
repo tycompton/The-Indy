@@ -894,3 +894,77 @@ footer .business_nfo .nfo {
     background-position: center center !important;
     border: 1px solid #eaeaea;
 }
+
+
+/* ============
+    LOGIN FORM
+============*/
+
+.login-form {
+    background-color: #fff;
+    padding: 2em;
+  }
+
+  .login-form label {
+    display: block;
+    margin-bottom: 0.25em;
+    font-weight: bold;
+  }
+
+  .login-form input {
+    width: 100%;
+    font-size: 1rem;
+    padding: 0.75em;
+    border: 0;
+    border-bottom: 3px solid #ebeff0;
+    border-radius: 3px;
+    background: #f4f9fb;
+    margin-bottom: 1em;
+  }
+
+  .login-form input::placeholder {
+    color: #a7a7a7;
+  }
+
+  .login-form input:focus {
+    outline: none;
+  }
+
+  .login-form button {
+    width: 100%;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 0.75em;
+    background: #4facfe;
+    color: #fff;
+    border: 0;
+    border-radius: 3px;
+    margin-bottom: 1em;
+    cursor: pointer;
+  }
+
+  .forgotten-password {
+    text-align: center;
+    margin-bottom: 1em;
+    font-size: 0.75em;
+  }
+
+  .sign-up {
+    border-top: 1px solid rgb(224, 224, 224);
+    padding-top: 1em;
+    text-align: center;
+    font-size: 0.75em;
+  }
+
+  @media screen and (min-width: 720px) {
+    .login-form {
+      border-radius: 6px;
+      margin: 0 auto;
+      max-width: 25em;
+    }
+
+    .login-form {
+      margin-top: 5em;
+      margin-bottom: 5em;
+    }
+  }

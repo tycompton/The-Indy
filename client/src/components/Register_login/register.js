@@ -90,21 +90,6 @@ class Register extends Component {
         touched: false,
         validationMessage:''
       },
-      phone: {
-        element: 'input',
-        value: '',
-        config:{
-          name: 'phone_input',
-          type: 'phone',
-          placeholder: 'Enter your phone number'
-        },
-        validation:{
-          required: true
-        },
-        valid: false,
-        touched: false,
-        validationMessage:''
-      },
     }
   }
 

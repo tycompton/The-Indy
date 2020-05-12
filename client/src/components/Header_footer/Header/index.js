@@ -31,12 +31,12 @@ class Header extends Component {
         public: false
       },
       {
-        name:'Login',
+        name:'Sign in',
         linkTo:'/register_login',
         public: true
       },
       {
-        name:'Logout',
+        name:'Sign out',
         linkTo:'/user/logout',
         public: false
       },
@@ -47,6 +47,7 @@ class Header extends Component {
     this.props.dispatch(logoutUser()).then(response =>{
       if(response.payload.success){
         this.props.history.push('/')
+        window.location.reload();
       }
     })
   }
@@ -65,7 +66,7 @@ class Header extends Component {
   }
 
   defaultLink = (item,i) => (
-    item.name === 'Logout' ? 
+    item.name === 'Sign out' ? 
       <div className="log_out_link"
         key={i}
         onClick={()=> this.logoutHandler()}
@@ -76,10 +77,7 @@ class Header extends Component {
     <Link to={item.linkTo} key={i}>
       {item.name}
     </Link>
-  )
-
-
-  
+  )  
 
   showLinks = (type) => {
     let list = [];
@@ -91,7 +89,7 @@ class Header extends Component {
             list.push(item)
           }
         } else {
-          if(item.name !== 'Login'){
+          if(item.name !== 'Sign in'){
             list.push(item)
           }
         }
