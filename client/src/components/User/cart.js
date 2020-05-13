@@ -170,6 +170,10 @@ class UserCart extends Component {
   render() {
     return (
         <div className="container">  
+          
+          <div className="text-center">
+
+          
           <h1 className="text-center">Checkout</h1>  
 
           <button 
@@ -185,6 +189,7 @@ class UserCart extends Component {
             onClick={this.onButtonClickDelivery}>
               Delivery
           </button>
+          </div>
 
           {this.state.showDeliveryAddress ? 
             this.showDeliveryAddressForm()

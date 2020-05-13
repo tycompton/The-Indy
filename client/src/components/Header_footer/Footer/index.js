@@ -64,10 +64,10 @@ const Footer = ({data}) => {
             </div>
           </div>
           <div className="left">
-            <h2>Be the first to know</h2>
-            <div>
-              Join our mailing list here!
-            </div>
+            <h2>Delivery Areas</h2>
+            <p>Brighton: £30 minimum order</p>
+            <p>Hove: £40 minimum order</p>
+            <p>Please contact us for other areas</p>
           </div>
         </div>
       </div>
