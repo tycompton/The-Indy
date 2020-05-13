@@ -102,7 +102,17 @@ class UserCart extends Component {
     return (
       <UserLayout>
         <div>
-          <h1>My Cart</h1>
+          <h1>Checkout</h1>
+          <div className="container">
+            {/* <button className="btn btn-primary" type="submit">
+              Order for collection
+            </button>
+            <button className="btn btn-primary" type="submit">
+              Order for delivery
+            </button> */}
+            <label for="deliveryAddress">Delivery address</label>
+            <textarea id="deliveryAddress" rows="20" cols="10" placeholder="leave blank if collecting from pub"></textarea>
+          </div>
           <div className="user_cart">
             <UserProductBlock
               products={this.props.user}
@@ -135,16 +145,7 @@ class UserCart extends Component {
               />
             </div>
           ) : null}
-        </div>
-        <div className="paypal_button_container">
-          Pay in person
-        </div>
-        <div className="paypal_button_container">
-          Order for collection
-        </div>
-        <div className="paypal_button_container">
-          Order for delivery
-        </div>
+        </div>        
       </UserLayout>
     );
   }

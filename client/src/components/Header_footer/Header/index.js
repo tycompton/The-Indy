@@ -21,7 +21,7 @@ class Header extends Component {
     ],
     user:[
       {
-        name:'My Cart',
+        name:'Basket',
         linkTo:'/user/cart',
         public: false
       },
@@ -97,7 +97,7 @@ class Header extends Component {
     }
 
     return list.map((item,i)=>{
-      if(item.name !== 'My Cart'){
+      if(item.name !== 'Basket'){
         return this.defaultLink(item,i)
       } else {
         return this.cartLink(item,i)

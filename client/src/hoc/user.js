@@ -12,7 +12,7 @@ const links = [
     linkTo: '/user/user_profile'
   },
   {
-    name: 'My Cart',
+    name: 'Basket',
     linkTo: '/user/cart'
   }
 ];

@@ -5,16 +5,16 @@ const formidable = require('express-formidable');
 const cloudinary = require('cloudinary');
 const SHA1 = require('crypto-js/sha1');
 
-const app = express();
-const mongoose = require('mongoose');
-const async = require('async');
+const async = require('async'); 
 require('dotenv').config();
 
+const mongoose = require('mongoose');
 mongoose.Promise = global.Promise;
 mongoose.connect(process.env.MONGODB_URI, { useNewUrlParser: true, useUnifiedTopology: true });
 mongoose.set('useCreateIndex', true);
 mongoose.set('useFindAndModify', false);
 
+const app = express();
 app.use(bodyParser.urlencoded({extended:true}));
 app.use(bodyParser.json());
 app.use(cookieParser());
@@ -418,6 +418,7 @@ app.post('/api/users/success_buy', auth, (req, res) => {
           (err) => {
             if (err) return res.json({ success: false, err });
             
+            // send order confirmation email
             sendEmail(user.email, user.name, null, "purchase", transactionData)
 
 
