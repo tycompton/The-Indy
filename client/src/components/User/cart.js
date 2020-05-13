@@ -17,6 +17,7 @@ class UserCart extends Component {
     total: 0,
     showTotal: false,
     showSuccess: false,
+    showDeliveryAddress: false
   };
 
   componentDidMount() {
@@ -72,40 +73,11 @@ class UserCart extends Component {
     </div>
   );
 
-  transactionError = (data) => {
-    console.log("Paypal error");
-  };
-
-  transactionCancelled = () => {
-    console.log("Transaction cancelled");
-  };
-
-  transactionSuccess = (data) => {
-    this.props
-      .dispatch(
-        onSuccessBuy({
-          cartDetail: this.props.user.cartDetail,
-          paymentData: data,
-        })
-      )
-      .then(() => {
-        if (this.props.user.successBuy) {
-          this.setState({
-            showTotal: false,
-            showSuccess: true,
-          });
-        }
-      });
-  };
-
-  render() {
-    return (
-      <UserLayout>
-        <div>
-          <h1>Checkout</h1>
-         
+  showDeliveryAddressForm = () => (
+        <div className="delivery_address">
+          <h4>Delivery Address</h4>
+          <p>Brighton £30 min. order | Hove £40 min. order</p>
           
-         
          <div className="form-group">
           {/* <label htmlFor="inputAddress">Address Line 1</label> */}
           <input 
@@ -124,7 +96,6 @@ class UserCart extends Component {
             placeholder="Address Line 2 (optional)">  
           </input>
          </div>
-
          <div className="form-row">
           <div className="form-group col-md-6">
             {/* <label for="inputCity">Town/City</label> */}
@@ -135,7 +106,6 @@ class UserCart extends Component {
               placeholder="Town/City">
             </input>
           </div>
-          
           <div className="form-group col-md-4">
             {/* <label for="inputState">County</label> */}
             <input 
@@ -145,7 +115,6 @@ class UserCart extends Component {
               placeholder="County">
             </input>
           </div>
-
           <div className="form-group col-md-2">
             {/* <label htmlFor="inputZip">Postcode</label> */}
             <input 
@@ -156,8 +125,71 @@ class UserCart extends Component {
             </input>
           </div>
         </div>
-        
+        </div> 
+  );
 
+  onButtonClickDelivery = () => {
+    this.setState({
+      showDeliveryAddress: true,
+    });
+  }
+
+  onButtonClickCollection = () => {
+    this.setState({
+      showDeliveryAddress: false,
+    });
+  }
+
+
+  transactionError = (data) => {
+    console.log("Paypal error")
+  };
+
+  transactionCancelled = () => {
+    console.log("Transaction cancelled")
+  };
+
+  transactionSuccess = (data) => {
+    this.props
+      .dispatch(
+        onSuccessBuy({
+          cartDetail: this.props.user.cartDetail,
+          paymentData: data,
+        })
+      )
+      .then(() => {
+        if (this.props.user.successBuy) {
+          this.setState({
+            showTotal: false,
+            showSuccess: true,
+          });
+        }
+      })
+  }
+
+  render() {
+    return (
+        <div className="container">  
+          <h1 className="text-center">Checkout</h1>  
+
+          <button 
+            className="btn btn-primary" 
+            type="submit"
+            onClick={this.onButtonClickCollection}>
+            
+            Collection
+          </button>
+
+          <button 
+            className="btn btn-primary" 
+            onClick={this.onButtonClickDelivery}>
+              Delivery
+          </button>
+
+          {this.state.showDeliveryAddress ? 
+            this.showDeliveryAddressForm()
+            : null
+          }
 
 
           <div className="user_cart">
@@ -169,7 +201,7 @@ class UserCart extends Component {
             {this.state.showTotal ? (
               <div>
                 <div className="user_cart_sum">
-                  <div>Total amount: £ {this.state.total}</div>
+                  <div>Order Total: £ {this.state.total}</div>
                 </div>
               </div>
             ) : this.state.showSuccess ? (
@@ -193,7 +225,7 @@ class UserCart extends Component {
             </div>
           ) : null}
         </div>        
-      </UserLayout>
+      
     );
   }
 }
