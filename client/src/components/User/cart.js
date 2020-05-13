@@ -79,7 +79,6 @@ class UserCart extends Component {
           <p>Brighton £30 min. order | Hove £40 min. order</p>
           
          <div className="form-group">
-          {/* <label htmlFor="inputAddress">Address Line 1</label> */}
           <input 
             type="text" 
             className="form-control" 
@@ -88,7 +87,6 @@ class UserCart extends Component {
           </input>
          </div>
          <div className="form-group">
-          {/* <label htmlFor="inputAddress2">Address Line 2</label> */}
           <input 
             type="text" 
             className="form-control" 
@@ -98,7 +96,6 @@ class UserCart extends Component {
          </div>
          <div className="form-row">
           <div className="form-group col-md-6">
-            {/* <label for="inputCity">Town/City</label> */}
             <input 
               type="text" 
               className="form-control" 
@@ -107,7 +104,6 @@ class UserCart extends Component {
             </input>
           </div>
           <div className="form-group col-md-4">
-            {/* <label for="inputState">County</label> */}
             <input 
               type="text" 
               id="inputState" 
@@ -116,7 +112,6 @@ class UserCart extends Component {
             </input>
           </div>
           <div className="form-group col-md-2">
-            {/* <label htmlFor="inputZip">Postcode</label> */}
             <input 
               type="text" 
               className="form-control" 
@@ -127,19 +122,6 @@ class UserCart extends Component {
         </div>
         </div> 
   );
-
-  onButtonClickDelivery = () => {
-    this.setState({
-      showDeliveryAddress: true,
-    });
-  }
-
-  onButtonClickCollection = () => {
-    this.setState({
-      showDeliveryAddress: false,
-    });
-  }
-
 
   transactionError = (data) => {
     console.log("Paypal error")
@@ -169,68 +151,60 @@ class UserCart extends Component {
 
   render() {
     return (
-        <div className="container">  
-          
-          <div className="text-center">
-
-          
-          <h1 className="text-center">Checkout</h1>  
-
-          <button 
-            className="btn btn-primary" 
+      <div className="container">
+        <div className="text-center">
+          <h1>Checkout</h1>
+          <button
+            className="btn btn-primary"
             type="submit"
-            onClick={this.onButtonClickCollection}>
-            
+            onClick={() => this.setState({ showDeliveryAddress: false })}
+          >
             Collection
           </button>
-
-          <button 
-            className="btn btn-primary" 
-            onClick={this.onButtonClickDelivery}>
-              Delivery
+          <button
+            className="btn btn-primary"
+            type="submit"
+            onClick={() => this.setState({ showDeliveryAddress: true })}
+          >
+            Delivery
           </button>
-          </div>
+        </div>
 
-          {this.state.showDeliveryAddress ? 
-            this.showDeliveryAddressForm()
-            : null
-          }
+        {this.state.showDeliveryAddress ? this.showDeliveryAddressForm() : null}
 
-
-          <div className="user_cart">
-            <UserProductBlock
-              products={this.props.user}
-              type="cart"
-              removeItem={(id) => this.removeFromCart(id)}
-            />
-            {this.state.showTotal ? (
-              <div>
-                <div className="user_cart_sum">
-                  <div>Order Total: £ {this.state.total}</div>
-                </div>
-              </div>
-            ) : this.state.showSuccess ? (
-              <div className="cart_success">
-                <FontAwesomeIcon icon={faSmile} />
-                <div>Thank you!</div>
-                <div>Your order is complete!</div>
-              </div>
-            ) : (
-              this.showNoItemMessage()
-            )}
-          </div>
+        <div className="user_cart">
+          <UserProductBlock
+            products={this.props.user}
+            type="cart"
+            removeItem={(id) => this.removeFromCart(id)}
+          />
           {this.state.showTotal ? (
-            <div className="paypal_button_container">
-              <Paypal
-                toPay={this.state.total}
-                transactionError={(data) => this.transactionError(data)}
-                transactionCancelled={(data) => this.transactionCancelled(data)}
-                onSuccess={(data) => this.transactionSuccess(data)}
-              />
+            <div>
+              <div className="user_cart_sum">
+                <div>Order Total: £ {this.state.total}</div>
+              </div>
             </div>
-          ) : null}
-        </div>        
-      
+          ) : this.state.showSuccess ? (
+            <div className="cart_success">
+              <FontAwesomeIcon icon={faSmile} />
+              <div>Thank you!</div>
+              <div>Your order is complete!</div>
+            </div>
+          ) : (
+            this.showNoItemMessage()
+          )}
+        </div>
+        {this.state.showTotal ? (
+          <div className="paypal_button_container">
+            <Paypal
+              toPay={this.state.total}
+              transactionError={(data) => this.transactionError(data)}
+              transactionCancelled={(data) => this.transactionCancelled(data)}
+              onSuccess={(data) => this.transactionSuccess(data)}
+            />
+          </div>
+        ) : null}
+      </div>
     );
   }
 }
