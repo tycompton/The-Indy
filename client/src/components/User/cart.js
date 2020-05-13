@@ -103,16 +103,63 @@ class UserCart extends Component {
       <UserLayout>
         <div>
           <h1>Checkout</h1>
-          <div className="container">
-            {/* <button className="btn btn-primary" type="submit">
-              Order for collection
-            </button>
-            <button className="btn btn-primary" type="submit">
-              Order for delivery
-            </button> */}
-            <label for="deliveryAddress">Delivery address</label>
-            <textarea id="deliveryAddress" rows="20" cols="10" placeholder="leave blank if collecting from pub"></textarea>
+         
+          
+         
+         <div className="form-group">
+          {/* <label htmlFor="inputAddress">Address Line 1</label> */}
+          <input 
+            type="text" 
+            className="form-control" 
+            id="inputAddress"
+            placeholder="Address Line 1">  
+          </input>
+         </div>
+         <div className="form-group">
+          {/* <label htmlFor="inputAddress2">Address Line 2</label> */}
+          <input 
+            type="text" 
+            className="form-control" 
+            id="inputAddress2"
+            placeholder="Address Line 2 (optional)">  
+          </input>
+         </div>
+
+         <div className="form-row">
+          <div className="form-group col-md-6">
+            {/* <label for="inputCity">Town/City</label> */}
+            <input 
+              type="text" 
+              className="form-control" 
+              id="inputCity"
+              placeholder="Town/City">
+            </input>
           </div>
+          
+          <div className="form-group col-md-4">
+            {/* <label for="inputState">County</label> */}
+            <input 
+              type="text" 
+              id="inputState" 
+              className="form-control"
+              placeholder="County">
+            </input>
+          </div>
+
+          <div className="form-group col-md-2">
+            {/* <label htmlFor="inputZip">Postcode</label> */}
+            <input 
+              type="text" 
+              className="form-control" 
+              id="inputZip"
+              placeholder="Postcode">         
+            </input>
+          </div>
+        </div>
+        
+
+
+
           <div className="user_cart">
             <UserProductBlock
               products={this.props.user}
