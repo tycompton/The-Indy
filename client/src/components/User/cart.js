@@ -17,7 +17,7 @@ class UserCart extends Component {
     total: 0,
     showTotal: false,
     showSuccess: false,
-    showDeliveryAddress: false
+    showDeliveryAddress: false,
   };
 
   componentDidMount() {
@@ -74,61 +74,61 @@ class UserCart extends Component {
   );
 
   showDeliveryAddressForm = () => (
-        <div className="delivery_address">
-          <h4>Delivery Address</h4>
-          <p>Brighton £30 min. order | Hove £40 min. order</p>
-          
-         <div className="form-group">
-          <input 
-            type="text" 
-            className="form-control" 
-            id="inputAddress"
-            placeholder="Address Line 1">  
-          </input>
-         </div>
-         <div className="form-group">
-          <input 
-            type="text" 
-            className="form-control" 
-            id="inputAddress2"
-            placeholder="Address Line 2 (optional)">  
-          </input>
-         </div>
-         <div className="form-row">
-          <div className="form-group col-md-6">
-            <input 
-              type="text" 
-              className="form-control" 
-              id="inputCity"
-              placeholder="Town/City">
-            </input>
-          </div>
-          <div className="form-group col-md-4">
-            <input 
-              type="text" 
-              id="inputState" 
-              className="form-control"
-              placeholder="County">
-            </input>
-          </div>
-          <div className="form-group col-md-2">
-            <input 
-              type="text" 
-              className="form-control" 
-              id="inputZip"
-              placeholder="Postcode">         
-            </input>
-          </div>
+    <div className="delivery_address">
+      <h4>Delivery Address</h4>
+      <p>Brighton £30 min. order | Hove £40 min. order</p>
+
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          id="inputAddress"
+          placeholder="Address Line 1"
+        ></input>
+      </div>
+      <div className="form-group">
+        <input
+          type="text"
+          className="form-control"
+          id="inputAddress2"
+          placeholder="Address Line 2 (optional)"
+        ></input>
+      </div>
+      <div className="form-row">
+        <div className="form-group col-md-6">
+          <input
+            type="text"
+            className="form-control"
+            id="inputCity"
+            placeholder="Town/City"
+          ></input>
         </div>
-        </div> 
+        <div className="form-group col-md-4">
+          <input
+            type="text"
+            id="inputState"
+            className="form-control"
+            placeholder="County"
+          ></input>
+        </div>
+        <div className="form-group col-md-2">
+          <input
+            type="text"
+            className="form-control"
+            id="inputZip"
+            placeholder="Postcode"
+          ></input>
+        </div>
+      </div>
+    </div>
   );
 
   transactionError = (data) => {
-    console.log("Paypal error")
+    console.log("Paypal error");
   };
 
   transactionCancelled = () => {
-    console.log("Transaction cancelled")
+    console.log("Transaction cancelled");
   };
 
   transactionSuccess = (data) => {
@@ -146,8 +146,8 @@ class UserCart extends Component {
             showSuccess: true,
           });
         }
-      })
-  }
+      });
+  };
 
   render() {
     return (
