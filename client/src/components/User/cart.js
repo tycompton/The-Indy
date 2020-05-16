@@ -174,7 +174,7 @@ class UserCart extends Component {
 
         <div className="user_cart">
           <UserProductBlock
-            products={this.props.user}
+            products={this.props.user} 
             type="cart"
             removeItem={(id) => this.removeFromCart(id)}
           />
@@ -192,7 +192,7 @@ class UserCart extends Component {
             </div>
           ) : (
             this.showNoItemMessage()
-          )}
+          )} 
         </div>
         {this.state.showTotal ? (
           <div className="paypal_button_container">
