@@ -45,7 +45,7 @@ class UserCart extends Component {
     let total = 0;
 
     cartDetail.forEach((item) => {
-      total += parseInt(item.price, 10) * item.quantity;
+      total += parseFloat(item.price, 10) * item.quantity;
     });
 
     this.setState({
