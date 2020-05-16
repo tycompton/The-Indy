@@ -92,7 +92,7 @@ class Paypal extends Component {
 
     return (
       <PayPalButton
-        amount="0.01"
+        amount={total}
         currency="GBP"
         onSuccess={onSuccess}
         onCancel={onCancel}
