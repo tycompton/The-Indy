@@ -126,48 +126,6 @@ class Login extends Component {
     );
   }
 
-  // render() {
-  //   return (
-  //     <div className="login-form">
-  //       <h1>Sign in</h1>
-  //       <form onSubmit={(event)=>this.submitForm(event)}>
-  //         <div>
-  //           <label htmlFor="email">Email</label> 
-  //           <input
-  //             type="text"
-  //             // placeholder="Enter your email address"
-  //             id={'email'}
-  //             formdata={this.state.formdata.email}
-  //             change={(element)=> this.updateForm(element)}
-  //           />
-  //         </div>
-  //         <div>
-  //           <label htmlFor="password">Password</label>
-  //           <input
-  //             type="password"
-  //             placeholder="Enter your password"
-  //             id={"password"}
-  //             formdata={this.state.formdata.password}
-  //             change={(element)=> this.updateForm(element)}
-  //           />
-  //         </div>
-  //         <button>Sign in</button>
-  //       </form>
-
-        // <div className="forgotten-password">
-        //   <a href="#">Forgotten your password?</a>
-        // </div>
-
-        // <div className="sign-up">
-        //   <a href="/register">New user? Start here</a>
-        // </div>
-  //     </div>
-  //   );
-  // }
-
-
-
-
 }
 
 export default connect()(withRouter(Login));

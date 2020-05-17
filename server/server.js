@@ -207,7 +207,9 @@ app.get('/api/users/auth',auth,(req,res)=>{
     lastname: req.user.lastname,
     role: req.user.role,
     cart: req.user.cart,
-    history: req.user.history
+    history: req.user.history,
+    phone: req.user.phone,
+    address: req.user.address
   })
 })
 
@@ -217,6 +219,7 @@ app.post('/api/users/register',(req,res)=>{
   user.save((err,doc)=>{
     if(err) return res.json({success:false,err});
 
+    // send welcome email
     sendEmail(doc.email, doc.name, null, "welcome")
 
     return res.status(200).json({
@@ -378,6 +381,8 @@ app.post('/api/users/success_buy', auth, (req, res) => {
     name: req.user.name,
     lastname: req.user.lastname,
     email: req.user.email,
+    address: req.user.address,
+    phone: req.user.phone
   };
 
   transactionData.data = {

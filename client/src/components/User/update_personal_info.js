@@ -57,8 +57,38 @@ class UpdatePersonalInfo extends Component {
         valid: false,
         touched: false,
         validationMessage:''
-      }
-    }
+      },
+      address: {
+        element: 'input',
+        value: '',
+        config:{
+          name: 'address_input',
+          type: 'text',
+          placeholder: 'Enter address here'
+        },
+        validation:{
+          required: true,
+        },
+        valid: false,
+        touched: false,
+        validationMessage:''
+      },
+      phone: {
+        element: 'input',
+        value: '',
+        config:{
+          name: 'phone_input',
+          type: 'text',
+          placeholder: 'Phone number'
+        },
+        validation:{
+          required: false,
+        },
+        valid: false,
+        touched: false,
+        validationMessage:''
+      },
+    } 
   }
 
   updateForm = (element) => {
@@ -111,7 +141,7 @@ class UpdatePersonalInfo extends Component {
     return (
       <div>
         <form onSubmit={(event) => this.submitForm(event)}>
-          <h2>Personal Information</h2>
+          <h2>Sign in & security</h2>
           <div className="form_block_two">
             <div className="block">
               <FormField
@@ -135,6 +165,20 @@ class UpdatePersonalInfo extends Component {
               change={(element) => this.updateForm(element)}
             />
           </div>
+          <div className="block">
+              <FormField
+                id={"address"}
+                formdata={this.state.formdata.address}
+                change={(element) => this.updateForm(element)}
+              />
+            </div>
+          <div className="block">
+              <FormField
+                id={"phone"}
+                formdata={this.state.formdata.phone}
+                change={(element) => this.updateForm(element)}
+              />
+            </div>
           <div>
             {
               this.state.formSuccess ?

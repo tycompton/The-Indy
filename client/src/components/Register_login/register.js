@@ -90,6 +90,21 @@ class Register extends Component {
         touched: false,
         validationMessage:''
       },
+      phone: {
+        element: 'input',
+        value: '',
+        config:{
+          name: 'phone_input',
+          type: 'text',
+          placeholder: 'Optional'
+        },
+        validation:{
+          required: true,
+        },
+        valid: false,
+        touched: false,
+        validationMessage:''
+      },
     }
   }
 
@@ -181,6 +196,11 @@ class Register extends Component {
                       /> 
                     </div>
                   </div>
+                  <FormField
+                        id={'phone'}
+                        formdata={this.state.formdata.phone}
+                        change={(element)=> this.updateForm(element)}
+                      />
                   <div>
                     { this.state.formError ? 
                       <div className="error_label">

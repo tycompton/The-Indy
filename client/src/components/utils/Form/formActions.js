@@ -24,7 +24,7 @@ export const validate = (element, formdata = []) => {
 
   return error;
 };
-
+ 
 export const update = (element, formdata, formName) => {
   const newFormdata = {
     ...formdata
@@ -98,13 +98,13 @@ export const resetFields = (formdata, formName) => {
   return newFormdata;
 };
 
-export const populateFields = (formData,fields) => {
+export const populateFields = (formdata, fields) => {
   
-  for(let key in formData){
-    formData[key].value = fields[key];
-    formData[key].valid = true;
-    formData[key].touched = true;
-    formData[key].validationMessage = ''
+  for(let key in formdata){
+    formdata[key].value = fields[key];
+    formdata[key].valid = true;
+    formdata[key].touched = true;
+    formdata[key].validationMessage = ''
   }
-  return formData;
+  return formdata;
 }

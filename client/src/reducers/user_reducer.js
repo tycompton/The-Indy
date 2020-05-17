@@ -50,7 +50,7 @@ export default function(state={},action){
     case ON_SUCCESS_BUY_USER:
       return {
         ...state,
-        successBuy: action.payload.success,
+        successBuy: action.payload.success, 
         userData: {
           ...state.userData,
           cart: action.payload.cart,

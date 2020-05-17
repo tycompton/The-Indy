@@ -40,6 +40,14 @@ const userSchema = mongoose.Schema({
   },
   token:{
     type: String
+  },
+  address:{
+    type: String,
+    maxlength: 500
+  },
+  phone:{
+    type: String,
+    maxlength: 11
   }
 })
 

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import UserLayout from '../../hoc/user';
+
 import UserProductBlock from '../utils/User/product_block';
+import UpdatePersonalInfo from '../User/update_personal_info';
 
 import { connect } from 'react-redux';
 import { getCartItems, removeCartItem, onSuccessBuy } from '../../actions/user_actions';
@@ -16,8 +17,7 @@ class UserCart extends Component {
     loading: true,
     total: 0,
     showTotal: false,
-    showSuccess: false,
-    showDeliveryAddress: false,
+    showSuccess: false
   };
 
   componentDidMount() {
@@ -45,7 +45,7 @@ class UserCart extends Component {
     let total = 0;
 
     cartDetail.forEach((item) => {
-      total += parseFloat(item.price, 10) * item.quantity;
+      total += parseFloat(item.price) * item.quantity;
     });
 
     this.setState({
@@ -73,56 +73,6 @@ class UserCart extends Component {
     </div>
   );
 
-  showDeliveryAddressForm = () => (
-    <div className="delivery_address">
-      <h4>Delivery Address</h4>
-      <p>Brighton £30 min. order | Hove £40 min. order</p>
-
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
-          id="inputAddress"
-          placeholder="Address Line 1"
-        ></input>
-      </div>
-      <div className="form-group">
-        <input
-          type="text"
-          className="form-control"
-          id="inputAddress2"
-          placeholder="Address Line 2 (optional)"
-        ></input>
-      </div>
-      <div className="form-row">
-        <div className="form-group col-md-6">
-          <input
-            type="text"
-            className="form-control"
-            id="inputCity"
-            placeholder="Town/City"
-          ></input>
-        </div>
-        <div className="form-group col-md-4">
-          <input
-            type="text"
-            id="inputState"
-            className="form-control"
-            placeholder="County"
-          ></input>
-        </div>
-        <div className="form-group col-md-2">
-          <input
-            type="text"
-            className="form-control"
-            id="inputZip"
-            placeholder="Postcode"
-          ></input>
-        </div>
-      </div>
-    </div>
-  );
-
   transactionError = (data) => {
     console.log("Paypal error");
   };
@@ -145,6 +95,7 @@ class UserCart extends Component {
             showTotal: false,
             showSuccess: true,
           });
+          window.location.reload();
         }
       });
   };
@@ -170,7 +121,9 @@ class UserCart extends Component {
           </button>
         </div>
 
-        {this.state.showDeliveryAddress ? this.showDeliveryAddressForm() : null}
+        
+
+        {this.state.showDeliveryAddress ? <UpdatePersonalInfo /> : null}
 
         <div className="user_cart">
           <UserProductBlock
