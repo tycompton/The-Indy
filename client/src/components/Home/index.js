@@ -18,13 +18,13 @@ class Home extends Component {
       <div>
         <HomeSlider />
         <CardBlock 
-        list={this.props.products.bySell}
-        title="Our most popular beers"
+          list={this.props.products.bySell}
+          title="Our most popular beers"
         />
         <HomePromotion />
         <CardBlock 
-        list={this.props.products.byArrival}
-        title="Our latest arrivals"
+          list={this.props.products.byArrival}
+          title="Our latest arrivals"
         />
       </div>
     );

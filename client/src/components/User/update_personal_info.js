@@ -135,13 +135,19 @@ class UpdatePersonalInfo extends Component {
       formdata: newFormdata
     })
   
-  }
+  } 
+
+  formTitle = () => {
+    return (
+      <h2>Sign in & security</h2>
+    )
+  } 
 
   render() {
     return (
       <div>
         <form onSubmit={(event) => this.submitForm(event)}>
-          <h2>Sign in & security</h2>
+          {this.formTitle()}
           <div className="form_block_two">
             <div className="block">
               <FormField

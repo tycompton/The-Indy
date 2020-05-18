@@ -68,7 +68,7 @@ class Login extends Component {
     if(formIsValid){
       this.props.dispatch(loginUser(dataToSubmit)).then(response =>{
         if(response.payload.loginSuccess){
-          this.props.history.push('/user/dashboard')
+          this.props.history.push('/shop')
         }else{
           this.setState({
             formError: true

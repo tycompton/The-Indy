@@ -6,16 +6,16 @@ const HomeSlider = (props) => {
   
   const slides = [
     {
-      img:'/images/featured/featured_home.jpg',
+      img:'/images/featured/the_indy_home.jpeg',
       lineOne:'The Independent',
       lineTwo:'Bottle Shop',
       linkTitle:'Shop now',
       linkTo:'/shop'
     },
     {
-      img:'/images/featured/featured_home_2.jpg',
-      lineOne:'B-Stock',
-      lineTwo:'Awesome discounts',
+      img:'/images/featured/the_indy_home.jpeg',
+      lineOne:'The Independent',
+      lineTwo:'Awesome deals',
       linkTitle:'View offers',
       linkTo:'/shop'
     }
@@ -63,7 +63,7 @@ const HomeSlider = (props) => {
   return (
     <div className="featured_container">
       <Slider {...settings}>
-        { generateSlides()}
+        {generateSlides()}
       </Slider>
       
     </div>

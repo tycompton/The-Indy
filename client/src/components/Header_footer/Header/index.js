@@ -109,11 +109,15 @@ class Header extends Component {
     return (
       <header className="bck_b_light">
         <div className="container">
+
+          <Link to={'/'}>
           <div className="left">
             <div className="logo">
               The Indy
             </div>
           </div>
+          </Link>
+
           <div className="right">
             <div className="top">
               {this.showLinks(this.state.user)}
@@ -122,6 +126,7 @@ class Header extends Component {
               {this.showLinks(this.state.page)}
             </div>
           </div>
+
         </div>
       </header>
     );

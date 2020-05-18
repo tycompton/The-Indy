@@ -123,7 +123,11 @@ class UserCart extends Component {
 
         
 
-        {this.state.showDeliveryAddress ? <UpdatePersonalInfo /> : null}
+        {this.state.showDeliveryAddress ? 
+          <UpdatePersonalInfo 
+            
+          /> 
+          : null}
 
         <div className="user_cart">
           <UserProductBlock
