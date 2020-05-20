@@ -92,25 +92,28 @@ class Shop extends Component {
         skip
       });
     });
-  };
+  }; 
 
   handleGrid = () => {
     this.setState({
       grid: !this.state.grid ? 'grid_bars' : ''
     });
   };
- 
+
+  
   render() {
     const products = this.props.products;
 
     return (
       <div>
         <PageTop 
-          title="Browse Products"
+          title="Browse Products" 
         />
         <div className="container">
           <div className="shop_wrapper">
+
             <div className="left">
+              
               <CollapseCheckbox 
                 initState={false}
                 title="Brewery"
@@ -136,6 +139,7 @@ class Shop extends Component {
                 handleFilters={(filters) => this.handleFilters(filters,'price')}
               />                
             </div>
+            
             <div className="right">
               <div className="shop_options">
                 <div className="shop_grids clear">

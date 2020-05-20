@@ -14,8 +14,8 @@ const Footer = ({data}) => {
           The Independent
         </div> 
         <div className="wrapper">
-          <div className="left">
-            <h2>Contact Information</h2>
+          <div className="site_info">
+            <h2>Contact Information</h2> 
             <div className="business_nfo">
               <div className="tag">
                 <FontAwesomeIcon 
@@ -63,7 +63,7 @@ const Footer = ({data}) => {
 
             </div>
           </div>
-          <div className="left">
+          <div className="delivery_info">
             <h2>Delivery Areas</h2>
             <p>Brighton: £30 minimum order</p>
             <p>Hove: £40 minimum order</p>

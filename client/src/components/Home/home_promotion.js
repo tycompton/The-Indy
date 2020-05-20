@@ -12,7 +12,7 @@ const HomePromotion = (props) => {
   }
   
   const renderPromotion = () => (
-    promotion ?
+    promotion ? 
       <div className="home_promotion_img"
         style={{
           background:`url(${promotion.img})`

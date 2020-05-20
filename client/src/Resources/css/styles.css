@@ -6,13 +6,15 @@ body {
 }
 
 .container {
-    width:1100px;
+    width:100%;
     margin: 0 auto;
 }
+
 .page_container {
     min-height: 75vh;
     padding-top: 85px; 
 }
+
 .main_loader {
     text-align: center;
     margin-top: 100px;
@@ -248,14 +250,20 @@ header {
     z-index: 999;
     width: 100%;
     border-bottom: 1px solid white;
+    background-color: red;
 }
 
-header .logo {
-    font-family: 'Monoton', cursive;
-    color: #ffffff;
-    font-size: 40px;
-    padding: 11px 0px;
+@media (max-width: 767px) {
+    header .logo {
+        font-family: 'Monoton', cursive;
+        color: #ffffff;
+        font-size: 20px;
+        padding: 5px 0px;
+    }
 }
+
+
+
 
 header a {
     margin-left: 20px;
@@ -310,6 +318,9 @@ header .log_out_link {
     margin-left: 20px;
 }
 
+#navbarToggler {
+    align-content: space-between;
+}
 
 /*============================
             FOOTER
@@ -331,9 +342,22 @@ footer .wrapper {
     color: #828282;
 }
 
-footer .left,
-footer .right {
-    flex: 1;
+@media (max-width: 767px) {
+    footer .delivery_info {
+        display: none;
+    }
+}
+
+@media (max-width: 767px) {
+    footer .site_info {
+        flex: 1;
+    }
+}
+
+@media (max-width: 767px) {
+    footer .site_info h2 {
+        text-align: center;
+    }
 }
 
 footer .business_nfo {
@@ -362,36 +386,100 @@ footer .business_nfo .nfo {
         FEATURED IMAGE
 ==============================*/
 
-.featured_container .featured_image {
-    position:relative;
-    background-size: cover !important;
-    background-position: center left !important;
+/* Smaller screens */
+@media (max-width: 767px) {
+    .featured_container .featured_image {
+        display: block no-repeat;
+        margin-left: auto;
+        margin-right: auto;
+        width: auto;
+    }
 }
 
-.featured_container .featured_action {
-    position: absolute;
-    top: 45%;
-    left: 8%;
+@media (max-width: 767px) {
+    .featured_container .featured_action {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
 
-.featured_container .featured_action .tag {
-    background: #82828287;
-    color: #ffffff;
-    padding: 0px 20px;
-    text-transform: uppercase;
-    display: table;
+@media (max-width: 767px) {
+    .featured_container .featured_action .tag {
+        background: #82828287;
+        color: #ffffff;
+        padding: 0px 20px;
+        text-transform: uppercase;
+        display: table;
+    }
 }
 
-.featured_container .featured_action .tag.title {
-    font-size: 70px;
-    font-weight: 700;
+/* The Independent */
+@media (max-width: 767px) {
+    .featured_container .featured_action .tag.title {
+        padding-top: 100px 0;
+        margin: 2rem;
+        font-size: 50px;
+        font-weight: 700;
+        text-align: center;
+        display: inline-block;
+    }
 }
 
-.featured_container .featured_action .tag.low_title {
-    font-size: 50px;
-    font-weight: 300;
-    margin-top: 10px;
+/* Bottle Shop or Awesome Deals */
+@media (max-width: 767px) {
+    .featured_container .featured_action .tag.low_title {
+        font-size: 50px;
+        font-weight: 300;
+        margin-top: 0px;
+        text-align: center;
+        margin-left: auto;
+        margin-right: auto;
+    }
 }
+
+/* Larger screens */
+@media (min-width: 768px) {
+    .featured_container .featured_image {
+        position:relative;
+        background-size: cover no-repeat !important;
+        background-position: center left !important;
+    }
+}
+
+@media (min-width: 768px) {
+    .featured_container .featured_action {
+        position: absolute;
+        top: 45%;
+        left: 8%;
+    }
+}
+
+@media (min-width: 768px) {
+    .featured_container .featured_action .tag {
+        background: #82828287;
+        color: #ffffff;
+        padding: 0px 20px;
+        text-transform: uppercase;
+        display: table;
+    }
+}
+
+@media (min-width: 768px) {
+    .featured_container .featured_action .tag.title {
+        font-size: 70px;
+        font-weight: 700;
+    }
+}
+
+@media (min-width: 768px) {
+    .featured_container .featured_action .tag.low_title {
+        font-size: 50px;
+        font-weight: 300;
+        margin-top: 10px;
+    }
+}
+
 
 /*============================
         FEATURED PROMOTION
@@ -414,18 +502,33 @@ footer .business_nfo .nfo {
     display: table;
 }
 
+/* Get great deals */
 .home_promotion .tag.title {
     font-size: 70px;
     font-weight: 700;
     margin: 10px auto;
 }
 
-.home_promotion .tag.low_title {
-    font-size: 50px;
-    font-weight: 300;
-    margin-top: 10px;
-    margin: 0 auto;
+/* On amazing beers */
+@media (max-width: 767px) {
+    .home_promotion .tag.low_title {
+        font-size: 50px;
+        font-weight: 300;
+        margin-top: 10px;
+        margin: 0 auto;
+        display: none;
+    }
 }
+
+@media (min-width: 768px) {
+    .home_promotion .tag.low_title {
+        font-size: 50px;
+        font-weight: 300;
+        margin-top: 10px;
+        margin: 0 auto;
+    }
+}
+
 
 .home_promotion .my_link a {
     margin: 10px auto;
@@ -447,23 +550,46 @@ footer .business_nfo .nfo {
     margin-bottom: 50px;
 }
 
-.card_block_shop .card_item_wrapper {
-    float: left;
-    width: 33.3%;
-    margin-bottom: 20px;
+@media (max-width: 767px) {
+    .card_block_shop .card_item_wrapper {
+        float: left;
+        width: 50%;
+        margin-bottom: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    .card_block_shop .card_item_wrapper {
+        float: left;
+        width: 33.3%;
+        margin-bottom: 20px;
+    }
 }
 
 /*============================
         CARD ITEM
 ==============================*/
 
-.card_item_wrapper {
-    flex-grow: 1;
-    width: 25%;
-    padding: 0 20px;
-    box-sizing: border-box;
-    position: relative;
-    overflow: hidden;
+@media (max-width: 767px) {
+    .card_item_wrapper {
+        flex-grow: 1;
+        width: 50%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+    }
+}
+
+@media (min-width: 768px) {
+    .card_item_wrapper {
+        flex-grow: 1;
+        width: 25%;
+        padding: 0 20px;
+        box-sizing: border-box;
+        position: relative;
+        overflow: hidden;
+    }
 }
 
 .card_item_wrapper .image {
@@ -573,9 +699,9 @@ footer .business_nfo .nfo {
 .shop_wrapper .left {
     flex-grow: 1;
 }
-
+ 
 .shop_wrapper .right {
-    width: 800px;
+    width: 100%;
 }
 
 .collapse_title span {
@@ -598,6 +724,7 @@ footer .business_nfo .nfo {
     margin: 0px 20px 20px 20px;
 }
 
+ 
 
 /*============================
         PRODUCT DETAIL

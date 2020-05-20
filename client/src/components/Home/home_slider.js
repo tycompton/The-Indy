@@ -30,7 +30,7 @@ const HomeSlider = (props) => {
     arrows: false
   }
 
-  const generateSlides = () => (
+  const generateSlides = () => ( 
     slides ? 
       slides.map((item, i)=> (
         <div key={i}>

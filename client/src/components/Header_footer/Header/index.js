@@ -5,7 +5,7 @@ import { connect } from 'react-redux';
 import { logoutUser } from '../../../actions/user_actions';
 
 class Header extends Component {
-
+ 
   state = {
     page:[
       {
@@ -21,13 +21,13 @@ class Header extends Component {
     ],
     user:[
       {
-        name:'Basket',
-        linkTo:'/user/cart',
+        name:'My Account',
+        linkTo:'/user/dashboard',
         public: false
       },
       {
-        name:'My Account',
-        linkTo:'/user/dashboard',
+        name:'Basket',
+        linkTo:'/user/cart',
         public: false
       },
       {
@@ -47,7 +47,7 @@ class Header extends Component {
     this.props.dispatch(logoutUser()).then(response =>{
       if(response.payload.success){
         this.props.history.push('/')
-        window.location.reload();
+        window.location.reload(); 
       }
     })
   }
@@ -107,28 +107,73 @@ class Header extends Component {
 
   render() {
     return (
-      <header className="bck_b_light">
-        <div className="container">
+      <nav className="navbar fixed-top navbar-expand-md navbar-light" style={{ backgroundColor: "#e3f2fd" }}>
+        <a class="navbar-brand" href="/">
+          <img
+            src="/images/featured/the_indy_logo.jpeg"
+            width="70"
+            height="70"
+            class="d-inline-block align-top"
+            alt=""
+            loading="lazy"
+          />
+        </a>
+        
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
 
-          <Link to={'/'}>
-          <div className="left">
-            <div className="logo">
-              The Indy
-            </div>
-          </div>
-          </Link>
-
-          <div className="right">
-            <div className="top">
-              {this.showLinks(this.state.user)}
-            </div>
-            <div className="bottom">
-              {this.showLinks(this.state.page)}
-            </div>
-          </div>
-
+        <div className="collapse navbar-collapse" id="navbarToggler">
+          <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
+            <li className="nav-item">
+                <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Home</a>
+            </li>
+            <li className="nav-item">
+                <a href="/shop" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Beers</a>
+            </li>
+            <li className="nav-item">
+            <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{this.showLinks(this.state.user)}</a>
+            </li>
+          </ul>
         </div>
-      </header>
+
+        {/* <div>
+        {this.showLinks(this.state.user)}
+        </div>
+        <div>
+        {this.showLinks(this.state.page)}
+        </div> */}
+
+        {/* <div className="right">
+          <div className="top">{this.showLinks(this.state.user)}</div>
+
+          <div className="bottom">{this.showLinks(this.state.page)}</div>
+        </div> */}
+
+      </nav>
+
+      // <header className="bck_b_light">
+      //   <div className="container">
+
+      //     <Link to={'/'}>
+      //     <div className="left">
+      //       <div className="logo">
+      //         The Indy
+      //       </div>
+      //     </div>
+      //     </Link>
+
+      //     <div className="right">
+      //       <div className="top">
+      //         {this.showLinks(this.state.user)}
+      //       </div>
+      //       <div className="bottom">
+      //         {this.showLinks(this.state.page)}
+      //       </div>
+      //     </div>
+
+      //   </div>
+      // </header>
     );
   }
 }
