@@ -108,36 +108,36 @@ class Header extends Component {
   render() {
     return (
       <nav className="navbar fixed-top navbar-expand-md navbar-light" style={{ backgroundColor: "#e3f2fd" }}>
-        <a class="navbar-brand" href="/">
+        <a className="navbar-brand" href="/">
           <img
             src="/images/featured/the_indy_logo.jpeg"
             width="70"
             height="70"
-            class="d-inline-block align-top"
+            className="d-inline-block align-top"
             alt=""
             loading="lazy"
           />
         </a>
         
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-          <span class="navbar-toggler-icon"></span>
+        <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+          <span className="navbar-toggler-icon"></span>
         </button>
 
         <div className="collapse navbar-collapse" id="navbarToggler">
           <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
             <li className="nav-item">
-                <a href="/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Home</a>
+                <a href="/" className="btn btn-primary btn-lg active" role="button" aria-pressed="true">Home</a>
             </li>
             <li className="nav-item">
-                <a href="/shop" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Beers</a>
+                <a href="/shop" className="btn btn-primary btn-lg active" role="button" aria-pressed="true">Beers</a>
             </li>
             <li className="nav-item">
-            <a href="#" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">{this.showLinks(this.state.user)}</a>
+              {this.showLinks(this.state.user)}
             </li>
           </ul>
         </div>
 
-        {/* <div>
+        {/* <div> 
         {this.showLinks(this.state.user)}
         </div>
         <div>

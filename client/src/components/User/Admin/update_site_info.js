@@ -9,7 +9,7 @@ import { getSiteData, updateSiteData } from '../../../actions/site_actions';
 
 class UpdateSiteInfo extends Component {
 
-  state = {
+  state = { 
     formError: false,
     formSuccess: false,
     formdata:{ 

@@ -14,9 +14,9 @@ const UserHistoryBlock = (props) => {
           <td>{product.quantity}</td>
         </tr>
       ))
-    :null    
+    :null     
   ) 
-
+ 
   return (
     <div className="history_blocks">
       <table>

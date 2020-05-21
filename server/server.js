@@ -410,7 +410,7 @@ app.post('/api/users/success_buy', auth, (req, res) => {
           products,
           (item, callback) => {
             Product.update(
-              { _id: item.id },
+              { _id: item.id }, 
               {
                 $inc: {
                   sold: item.quantity,
@@ -481,7 +481,22 @@ app.post("/api/site/site_data", auth, admin, (req, res) => {
   );
 });
 
-// DEFAULT PRODUCTION ROUTE 
+//===============================
+//             PAYMENTS
+// ==============================
+
+app.get("/api/payments/view_payments", (req, res) => {
+  Payment.find({}, (err, payment) => {
+    if(err) return res.status(400).send(err);
+    res.status(200).send(payment);
+  });
+});
+
+
+
+//===============================
+//    DEFAULT PRODUCTION ROUTE 
+// ==============================
 if( process.env.NODE_ENV === 'production' ){
   const path = require('path');
   app.get('/*',(req,res)=>{

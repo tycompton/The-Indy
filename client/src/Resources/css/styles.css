@@ -314,7 +314,7 @@ header .cart_link span {
 }
 header .log_out_link {
     cursor: pointer;
-    display: inline-block;
+    display: inline-block; 
     margin-left: 20px;
 }
 

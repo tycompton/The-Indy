@@ -29,6 +29,10 @@ const admin = [
   {
     name: 'Manage categories',
     linkTo: '/admin/manage_categories'
+  },
+  {
+    name: 'View payments',
+    linkTo: '/admin/view_payments'
   }
 ];
 
