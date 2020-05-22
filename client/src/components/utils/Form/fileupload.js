@@ -36,7 +36,7 @@ class Fileupload extends Component {
         }
       );
     });
-  };
+  }; 
 
 
 
@@ -86,17 +86,13 @@ class Fileupload extends Component {
 
   render() {
     return (
-      <Dropzone onDrop={e => this.onDrop(e)}>
+      <Dropzone onDrop={(e) => this.onDrop(e)}>
         {({ getRootProps, getInputProps }) => (
           <section className="container">
             <div {...getRootProps({ className: "dropzone" })}>
               <input {...getInputProps()} />
               <p>Drag 'n' drop some files here, or click to select files</p>
             </div>
-            {/* <aside>
-                  <h4>Files</h4>
-                  <ul>{files}</ul>
-                </aside> */}
 
             {this.showUploadedImages()}
             {this.state.uploading ? (
@@ -104,7 +100,7 @@ class Fileupload extends Component {
                 className="dropzone_box"
                 style={{
                   textAlign: "center",
-                  paddingTop: "60px"
+                  paddingTop: "60px",
                 }}
               >
                 <CircularProgress style={{ color: "#00bcd4" }} thickness={7} />

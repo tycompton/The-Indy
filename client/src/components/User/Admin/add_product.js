@@ -20,7 +20,7 @@ class AddProduct extends Component {
         value: '',
         config: {
           label: "Product name",
-          name: "name_input",
+          name: "name_input", 
           type: "text",
           placeholder: "Enter product name"
         },

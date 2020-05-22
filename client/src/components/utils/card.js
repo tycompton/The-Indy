@@ -12,7 +12,7 @@ class Card extends Component {
     } else {
       return './images/image_not_available.png'
     }
-  } 
+  }  
 
 
   render() {

@@ -298,7 +298,7 @@ header .container .right .top {
 }
 
 header .cart_link {
-    display: inline-block;
+    display: inline-block; 
     position: relative;
 }
 

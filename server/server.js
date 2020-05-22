@@ -482,13 +482,13 @@ app.post("/api/site/site_data", auth, admin, (req, res) => {
 });
 
 //===============================
-//             PAYMENTS
+//             VIEW PAYMENTS
 // ==============================
 
 app.get("/api/payments/view_payments", (req, res) => {
-  Payment.find({}, (err, payment) => {
+  Payment.find({}, (err, payments) => {
     if(err) return res.status(400).send(err);
-    res.status(200).send(payment);
+    res.status(200).send(payments);
   });
 });
 

@@ -18,7 +18,7 @@ const LoadmoreCards = (props) => {
             </span>
           </div>
         :null
-      }
+      } 
     </div>
   );
 };
