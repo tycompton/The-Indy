@@ -106,7 +106,8 @@ class AddProduct extends Component {
           name: "size_input",
           options: [
             { key: 330, value: "330ml" },
-            { key: 440, value: "440ml" }
+            { key: 440, value: "440ml" },
+            { key: 568, value: "568ml" }
           ]
         },
         validation: {
