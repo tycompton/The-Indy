@@ -68,7 +68,7 @@ const ProdInfo = (props) => {
           <strong>Type:</strong> {detail.type.name}
         </div>
         <div className="item">
-          <strong>Size:</strong> {detail.size}
+          <strong>Size:</strong> {detail.size}ml
         </div>
       </div>
       

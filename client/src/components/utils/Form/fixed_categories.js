@@ -6,6 +6,10 @@ const size = [
   {
     "_id": 440,
     "name": "440ml"
+  },
+  {
+    "_id": 568,
+    "name": "568ml"
   }
 ]
 
@@ -68,7 +72,4 @@ const price = [
 ]
 
 
-export {
-  size,
-  price
-}
+export { size, price };
